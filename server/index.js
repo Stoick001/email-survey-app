@@ -26,7 +26,7 @@ require('./routes/auth-routes')(app);
 require('./routes/billing-routes')(app);
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+  app.use('client/build', express.static('client/build'));
 
   const path = require('path');
 

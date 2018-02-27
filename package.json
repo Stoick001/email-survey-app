@@ -9,10 +9,12 @@
   },
   "scripts": {
     "start": "node server/index.js",
+    "start-nodemon": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "npm run start --prefix server/client",
-    "dev": "concurrently \"npm run start\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix server/client && npm run build --prefix server/client"
+    "dev": "concurrently \"npm run start-nodemon\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix server/client && npm run build --prefix server/client",
+    "webhook": "lt -p 5000 -s oijnbvvtgyukmmbvfd"
   },
   "author": "",
   "license": "ISC",
@@ -21,9 +23,16 @@
     "concurrently": "^3.5.1",
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.2",
+    "lodash": "^4.17.5",
     "mongoose": "^5.0.1",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
+    "path-parser": "^3.0.1",
+    "sendgrid": "^5.2.3",
     "stripe": "^5.4.0"
+  },
+  "devDependencies": {
+    "localtunnel": "^1.8.3",
+    "nodemon": "^1.15.1"
   }
 }
